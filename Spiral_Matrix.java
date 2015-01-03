@@ -6,7 +6,7 @@ public class Solution {
     	int upperRowBound = 0, leftColBound = 0, 
     		bottomRowBound = row - 1, rightColBound = col - 1;
 
-        int[] sol = new int[totalElements];
+        Integer[] sol = new Integer[totalElements];
 
         int curRow = 0, curCol = 0;
 
