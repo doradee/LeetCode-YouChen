@@ -37,6 +37,6 @@ public class Solution {
         	
         }//while
 
-        return sol;
+        return Arrays.asList(sol);
     }
 }
