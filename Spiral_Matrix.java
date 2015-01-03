@@ -1,5 +1,24 @@
 public class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
+
+    	if (matrix.length == 0) {
+    		return null;//new List<Integer>();
+    	}
+    	else if (matrix.length == 1) {
+    		//like [3, 4, 8, 12, 65]
+    		
+            Integer[] newArray = new Integer[matrix[0].length];
+            int i = 0;
+            for (int value : matrix[0]) {
+                newArray[i++] = Integer.valueOf(value);
+            }
+            return Arrays.asList(newArray);
+    		
+    	}
+    	// else if (matrix[0].length == 1) {
+    	// 	return 
+    	// }
+
     	int row = matrix.length, col = matrix[0].length,
     		totalElements = row * col;
 
