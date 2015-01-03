@@ -35,7 +35,7 @@ public class Solution {
         //     while( numbers[backIndex] > target )//|| numbers[backIndex] > target - numbers[i])
         //         backIndex--;
         // }
-        
+
         /**
          * trial #3
          */
@@ -50,8 +50,6 @@ public class Solution {
                 return new int[]{i+1, sol.get(target - numbers[i])};
             }
         }
-        
-        
         return null;
         
     }
