@@ -24,18 +24,31 @@ public class Solution {
         /**
          * trial #2
          */
-        int backIndex = numbers.length - 1;
+        // int backIndex = numbers.length - 1;
         
-        for(int i = 0; i <= numbers.length - 2; i++){
-            if (numbers[i] + numbers[backIndex] == target){
-                    sol[0] = i + 1;
-                    sol[1] = backIndex + 1;
-                    return sol;
-            }//if
-            while( numbers[backIndex] > target )//|| numbers[backIndex] > target - numbers[i])
-                backIndex--;
+        // for(int i = 0; i <= numbers.length - 2; i++){
+        //     if (numbers[i] + numbers[backIndex] == target){
+        //             sol[0] = i + 1;
+        //             sol[1] = backIndex + 1;
+        //             return sol;
+        //     }//if
+        //     while( numbers[backIndex] > target )//|| numbers[backIndex] > target - numbers[i])
+        //         backIndex--;
+        // }
+        /**
+         * trial #3
+         */
+        //hashtable <key, index> i.e. <2, 1>
+        Hashtable<Integer, Integer> sol = new Hashtable<Integer, Integer>();
+        for(int i = 0; i <= numbers.length - 1; i++){
+            sol.put(numbers[i], i + 1);
         }
-        
+        for(int i = 0; i <= numbers.length - 1; i++){
+            if(sol.containsKey(target - numbers[i]) && i+1 < sol.get(target - numbers[i])){
+                
+                return new int[]{i+1, sol.get(target - numbers[i])};
+            }
+        }
         
         
         return null;
