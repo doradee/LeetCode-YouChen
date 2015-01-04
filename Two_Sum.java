@@ -1,6 +1,11 @@
 /**
  * O(n)
  * 368 ms
+ * 
+ * Hashtable
+ *      constructor, put(), containsKey(), get();
+ * Array
+ *      return new int[]{2, 3};
  */
 import java.util.*;
 public class Solution {
