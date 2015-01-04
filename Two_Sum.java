@@ -53,8 +53,7 @@ public class Solution {
             sol.put(numbers[i], i + 1);
         }
         for(int i = 0; i <= numbers.length - 1; i++){
-            if(sol.containsKey(target - numbers[i]) && i+1 < sol.get(target - numbers[i])){
-                
+            if(sol.containsKey(target - numbers[i]) && i+1 < sol.get(target - numbers[i])){        
                 return new int[]{i+1, sol.get(target - numbers[i])};
             }
         }
