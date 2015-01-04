@@ -1,6 +1,15 @@
 /**
  * O(n)
  * 354 ms
+ * 
+ * List is an interface, implementing classes including
+ *      ArrayList, LinkedList, Stack, Vector and etc...
+ * ArrayList
+ *      constructor, add(), size()
+ * Array
+ *      2D array matrix:
+ *          matrix.length -> num of rows
+ *          matrix[0].length -> num of cols.
  */
 public class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
