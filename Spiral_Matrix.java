@@ -1,3 +1,7 @@
+/**
+ * O(n)
+ * 354 ms
+ */
 public class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
         /**
@@ -75,7 +79,7 @@ public class Solution {
             if(leftColBound + 1 <= rightColBound - 1)
                 leftColBound++;
         }//while
-        
+
         return sol;
     }
 }
