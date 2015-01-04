@@ -1,61 +1,80 @@
 public class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
 
-    	if (matrix.length == 0) {
-    		return null;//new List<Integer>();
-    	}
-    	else if (matrix.length == 1) {
-    		//like [3, 4, 8, 12, 65]
-    		
-            Integer[] newArray = new Integer[matrix[0].length];
-            int i = 0;
-            for (int value : matrix[0]) {
-                newArray[i++] = Integer.valueOf(value);
+         ArrayList<Integer> sol = new ArrayList<Integer>();
+
+            if (matrix.length == 0 || matrix == null) return sol;
+            //1 row
+            if (matrix.length == 1) {
+                for (int i = 0; i < matrix[0].length; i++) {
+                    sol.add(matrix[0][i]);
+                }
+                return sol;
             }
-            return Arrays.asList(newArray);
-    		
-    	}
-    	// else if (matrix[0].length == 1) {
-    	// 	return 
-    	// }
+            //1 col
+            if (matrix[0].length == 1) {
+                for (int i = 0; i < matrix.length; i++) {
+                    sol.add(matrix[i][0]);
+                }
+                return sol;
+            }
 
-    	int row = matrix.length, col = matrix[0].length,
-    		totalElements = row * col;
+            int row = matrix.length, col = matrix[0].length,
+            totalElements = row * col;
 
-    	int upperRowBound = 0, leftColBound = 0, 
-    		bottomRowBound = row - 1, rightColBound = col - 1;
+            int upperRowBound = 0, leftColBound = 0, 
+            bottomRowBound = row - 1, rightColBound = col - 1;
 
-        Integer[] sol = new Integer[totalElements];
 
-        int curRow = 0, curCol = 0;
+            int curRow = 0, curCol = 0;
 
-        int i = 0;
-        // for (int i = 0; i < totalElements - 1; i++) {
-        while(i < totalElements - 1){
-        	while (curRow == upperRowBound && curCol <= rightColBound - 1) 
-        		sol[i++] = matrix[curRow][curCol++];
+            while(sol.size() <= totalElements){
+                while (curRow == upperRowBound && curCol <= rightColBound) {
 
-        	upperRowBound++;
+                    if(sol.size() == totalElements) return sol;
+                    sol.add(matrix[curRow][curCol++]);
+                }
+                if(curCol - 1 == rightColBound) curCol--;
+                curRow++;
+                if(upperRowBound + 1 <= bottomRowBound - 1)
+                    upperRowBound++;
+                
+                
 
-        	while (curCol == rightColBound && curRow <= bottomRowBound - 1) 
-        		sol[i++] = matrix[curRow++][curCol];
+                while (curCol == rightColBound && curRow <= bottomRowBound) {
+                    if(sol.size() == totalElements) return sol;
+                    sol.add(matrix[curRow++][curCol]);
+                }
+                if(curRow - 1 == bottomRowBound) curRow--;
+                curCol--;
+                if(rightColBound - 1 >= leftColBound + 1)
+                    rightColBound--;
+                
+                
 
-        	rightColBound--;
+                while (curRow == bottomRowBound && curCol >= leftColBound){
+                    if(sol.size() == totalElements) return sol;
+                    sol.add(matrix[curRow][curCol--]);
+                }
+                if(curCol + 1 == leftColBound) curCol++;
+                curRow--;
+                if(bottomRowBound - 1 >= upperRowBound + 1)
+                    bottomRowBound--;
+                
 
-        	
-        	while (curRow == bottomRowBound && curCol >= leftColBound - 1)
-        		sol[i++] = matrix[curRow][curCol--];
+                while (curCol == leftColBound && curRow >= upperRowBound){
+                    if(sol.size() == totalElements) return sol;
+                    sol.add(matrix[curRow--][curCol]);
+                }
+                if(curRow + 1 == upperRowBound) curRow++;
+                curCol++;
+                if(leftColBound + 1 <= rightColBound - 1)
+                    leftColBound++;
+                
 
-        	bottomRowBound--;
+                
+            }//while
 
-        	while (curCol == leftColBound && curRow >= upperRowBound - 1)
-        		sol[i++] = matrix[curRow--][curCol];
-
-        	leftColBound++;
-
-        	
-        }//while
-
-        return Arrays.asList(sol);
+            return sol;
     }
 }
