@@ -1,7 +1,13 @@
-//import java.util.*;
+/**
+ * O(n)
+ * 14 ms
+ * 
+ * Array
+ */
+import java.util.*;
 public class Solution {
     public int removeElement(int[] A, int elem) {
-    	//Solution #1
+    	//Solution #1 529 ms
 //         ArrayList<Integer> arr = new ArrayList<Integer>();
         
 // 		for(int item: A) {
@@ -16,7 +22,7 @@ public class Solution {
 		    
 // 		return arr.size();
 
-		//Solution #2
+		//Solution #2 440 ms
 		//Copied from https://oj.leetcode.com/discuss/3753/my-solution-for-your-reference
 		// int begin = 0;
 		// for (int i = 0; i < A.length; ++i) 
@@ -24,13 +30,14 @@ public class Solution {
 		// 		A[begin++] = A[i];
 		// return begin;
 
-		//Solution #3
+		//Solution #3 440 ms
 		int size = 0;
 		for (int i = 0; i < A.length; ++i) {
 			if (A[i] != elem) {
-				A[i] = A[size];
+				A[size] = A[i];
 				size++;
 			}
 		}
-	}
+		return size;
+	}//removeElement
 }
