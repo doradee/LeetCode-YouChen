@@ -1,9 +1,12 @@
+/**
+ * O(n)
+ * 368 ms
+ */
 import java.util.*;
-
 public class Solution {
     public int[] twoSum(int[] numbers, int target) {
         
-        int[] sol = new int[2];
+        // int[] sol = new int[2];
         
         // /**
         //  * trial #1
