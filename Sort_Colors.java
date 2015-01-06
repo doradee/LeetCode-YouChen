@@ -39,7 +39,7 @@
  */
 public class Sort_Colors {
     public void sortColors(int[] A) {
-        //#1 O(n) Time
+        //#1 O(n) Time 190 ms
         // int r = 0, w = 0, b = 0;
         // for(int item : A){
         //     switch(item){
@@ -68,7 +68,7 @@ public class Sort_Colors {
         //     b--;
         // }
           
-        //#2 O(n^2) Time, O(1) Space
+        //#2 O(n^2) Time, O(1) Space 189 ms
         int r = 0, w = 0, b = 0;//rwb -> 0, 1, 2
         for(int i = 0; i < A.length; i++){
             if(A[i] == 0){
