@@ -58,6 +58,26 @@ public class Solution {
             }
         }
         return null;
+
+        /**
+         * solution from 
+         *      http://blog.csdn.net/fightforyourdream/article/details/13013147
+         */
+        // 放值和数组下标  
+        // Hashtable<Integer, Integer> ht = new Hashtable<Integer, Integer>();  
+        // int[] ret = new int[2];  
+          
+        // for(int i=0; i<numbers.length; i++){  
+        //     // 对每一个数边放边查找  
+        //     if(ht.get(target-numbers[i]) != null){  
+        //         ret[0] = ht.get(target-numbers[i]) + 1;  
+        //         ret[1] = i+1;  
+        //     }else{  
+        //         ht.put(numbers[i], i);  
+        //     }  
+        // }  
+          
+        // return ret;  
         
     }
 }
