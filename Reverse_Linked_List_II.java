@@ -21,7 +21,7 @@
  * }
  */
 public class Solution {
-    public ListNode reverseBetween(ListNode head, int m, int n) {//16:05
+    public ListNode reverseBetween(ListNode head, int m, int n) {//35 min
         if(head == null || head.next == null || m == n) return head;
         
         ListNode p1 = head, p2 = head;
