@@ -33,19 +33,62 @@
  * 
  * Solution by using 1D array.
  */
-public class Solution {
-    public int uniquePaths(int m, int n) {
-        int[] sol = new int[n];
-        sol[0] = 1;
+// public class Solution {
+//     public int uniquePaths(int m, int n) {
+//         int[] sol = new int[n];
+//         sol[0] = 1;
         
-        for(int i = 0; i < m; i++){
-            for(int j = 0; j < n; j++){
-                if(j > 0)
-                    sol[j] += sol[j - 1];
+//         for(int i = 0; i < m; i++){
+//             for(int j = 0; j < n; j++){
+//                 if(j > 0)
+//                     sol[j] += sol[j - 1];
+//             }
+//         }
+        
+//         return sol[sol.length - 1];
+//     }
+// }
+    
+
+
+
+//attempted on Feb 28.
+// public class Solution{
+//     public static int[][] move = new int[101][101];
+    
+//     public int uniquePaths(int m, int n){
+//         return uniquePaths2(m - 1, n - 1);
+//     }
+//     public int uniquePaths2(int m, int n){
+//      if(m == 0 || n == 0) return 1;
+//      if(move[m][n] != 0) return move[m][n];
+    
+//      move[m][n] = uniquePaths2(m - 1, n) + uniquePaths2(m, n - 1);
+//      return move[m][n];
+//     }
+// }
+
+
+
+
+//attempted on Feb 28
+public class Solution{
+    public static int[] move;
+        
+    public int uniquePaths(int m, int n){
+        if(m <= 0 || n <= 0) return 0;
+        move = new int[n];
+        return func(m - 1, n - 1);
+    }
+
+    public int func(int m, int n){
+        move[0] = 1;
+        for(int i = 0; i <= m; i++){
+            for(int j = 1; j <= n; j++){
+                move[j] += move[j - 1];
             }
         }
-        
-        return sol[sol.length - 1];
+        System.out.println( Arrays.toString(move));
+        return move[n];
     }
 }
-    
