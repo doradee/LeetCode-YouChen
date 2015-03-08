@@ -7,6 +7,9 @@
  *      The tricky part is the first if statement inside the while loop.
  *      It saying that if the num[mid] is greater than its neighbors. then it's the peak index.
  *      And you need to add the corner case for if the mid is the left or right boundry of the array.
+ *
+ * Reference:
+ *      http://siddontang.gitbooks.io/leetcode-solution/content/array/find_peak_element.html
  */
 public class Solution {
     public int findPeakElement(int[] num) {//Mar 8 - 00:35
