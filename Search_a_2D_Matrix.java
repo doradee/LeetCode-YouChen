@@ -6,6 +6,10 @@
  * Note:
  *      Easy one. But you need to remember the core principle of Binary Search.
  *      when the code "jump out of while loop", where the top bottom points to.
+ *
+ * Reference:
+ *      http://www.cnblogs.com/springfor/p/3857959.html
+ * Better to look at the other solution, only use 1 time Binary Search.
  */
 public class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {//Mar 11 21:35
