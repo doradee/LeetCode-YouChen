@@ -1,5 +1,7 @@
 /**
  * 2nd round.
+ * Easy. Practice.
+ * 
  * Remember the special case of 1 row and 1 col
  *      also the special case of 1 row and 1 col in the iteration process.
  */
