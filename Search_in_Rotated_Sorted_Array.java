@@ -1,0 +1,62 @@
+/**
+ * O(log n)
+ * O(1)
+ * 238 ms
+ * 
+ * Note:
+ *      Nice one for Binary Search.
+ *      Caution the marked part which is easy to get wrong!!
+ */
+public class Solution {
+    public int search(int[] A, int target) {
+        if(A.length == 0 || A == null) return -1;
+
+    int left = 0, right = A.length - 1;
+    int mid = left + (right - left ) / 2;
+
+    while(left <= right){
+      if(A[mid] == target) return mid;
+      else if(A[mid] < target){
+        if(A[left] < A[mid])//left is sorted, find within right side.
+          left = mid + 1;
+        //then right is sorted.
+//        else if(A[right] >= target)
+//          left = mid + 1;
+//        else
+//          right = mid - 1;
+        /**
+         * Pick either above or below.
+         * CAUTION!!:
+         *    Here is so easy to get wrong. you need to consider all the cases.
+         */
+        else if(A[right] < target)//target is larger than the largest one on right, then it must in left side. ===========Easy to get wrong here, see the previous submission.
+          right = mid - 1;
+        else//right is sorted, A[right] >= target, target must be in right side.
+          left = mid + 1;
+
+      }
+      else if(A[mid] > target){
+        if(A[right] > A[mid])//right is sorted
+          right = mid - 1;//find left side
+        //then left is sorted.
+        
+//        else if(A[left] <= target)//left is sorted
+//          right = mid - 1;
+//        else//left is sorted, and A[left] >= target, target must in right side.
+//          left = mid + 1;
+        /**
+         * Same here.
+         * Pick either above or below.
+         */
+        else if(A[left] > target)//left is sorted
+          left = mid + 1;
+        else//left is sorted, and A[left] >= target, target must in right side.
+          right = mid - 1;
+
+      }
+      mid = left + (right - left ) / 2;
+    }
+
+    return -1;
+    }
+}
