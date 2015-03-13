@@ -5,7 +5,15 @@
  * 
  * Note:
  *      Nice one for Binary Search.
+ *      The key point for solution is that
+ *          Whatever how this array rotate, there must at least exist a sorted part either left or right or both!!
+ *
+ *      要解决这道题，需要明确rotated sorted array的特性，那么就是至少有一侧是排好序的（无论pivot在哪，自己画看看）
+ *
  *      Caution the marked part which is easy to get wrong!!
+ *
+ * Reference:
+ *    http://www.cnblogs.com/springfor/p/3858140.html
  */
 public class Solution {
     public int search(int[] A, int target) {
